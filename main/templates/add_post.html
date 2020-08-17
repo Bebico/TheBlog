@@ -2,7 +2,7 @@
 {% block title %}Add post{% endblock%}
 {% block content %}
 
-
+{% if user.is_authenticated %}
 <h1>Add Post</h1>
 <div class="form-group">
   <form method="POST">
@@ -10,6 +10,7 @@
     {{ form.as_p }}
     <button class="btn btn-secondary">Post</button>
 </div>
-
-
+{% else %}
+<h2>You must be loged in to edit../</h2>
+{% endif %}
 {% endblock %}

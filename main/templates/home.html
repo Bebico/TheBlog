@@ -10,11 +10,14 @@
       <li>
         <a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a> - {{ post.author.first_name }}
         {{ post.author.last_name }} - {{ post.post_date }}
-        <small>
-          <a href="{% url 'update_post' post.pk %}">(edit)</a>
-          <a href="{% url 'delete_post' post.pk %}">(delete)</a>
-        </small>  <br/>
-        {{ post.body }}
+        {% if user.is_authenticated %}
+          <small>
+            <a href="{% url 'update_post' post.pk %}">(edit)</a>
+            <a href="{% url 'delete_post' post.pk %}">(delete)</a>
+          </small>  <br/>
+        {% endif %}
+
+        {{ post.body|slice:"200" }}
         <hr>
       </li>
 
