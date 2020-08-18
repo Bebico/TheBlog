@@ -24,6 +24,11 @@
             </li>
 
             <li class="nav-item">
+              <a class="nav-link active" href="{% url 'add_category' %}">Add Category<span class="sr-only">(current)</span></a>
+            </li>
+
+
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
           {% else %}

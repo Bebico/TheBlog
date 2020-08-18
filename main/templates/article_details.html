@@ -6,7 +6,9 @@
 <h1>{{ post.title }}</h1>
   {% if user.is_authenticated %}
   <small>
-    By: {{ post.author.first_name}} - {{ post.post_date }}
+    By: {{ post.author.first_name}}
+    - {{ post.category }}
+    - {{ post.post_date }}
 
     <a href="{% url 'update_post' post.pk %}">(edit)</a>
     <a href="{% url 'delete_post' post.pk %}">(delete)</a>
