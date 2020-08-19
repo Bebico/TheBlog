@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Post</h1>
+<h1>{{ cats|title }}</h1>
 
-
+{% if category_posts %}
 <ul>
-  {% for post in object_list %}
+  {% for post in category_posts %}
 
       <li>
         <a href="{% url 'article_detail' post.pk %}">{{ post.title }}</a>
-        <a href="{% url 'category' post.category %}">- {{ post.category }}</a>
+
         - {{ post.author.first_name }}
         {{ post.author.last_name }} - {{ post.post_date }}
         {% if user.is_authenticated %}
@@ -25,5 +25,9 @@
 
   {% endfor %}
 </ul>
+
+{% else %}
+    <h2>This Category Does Not Exists....</h2>
+{% endif %}
 
 {% endblock %}

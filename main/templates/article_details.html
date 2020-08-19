@@ -17,7 +17,7 @@
 {% endif %}
 
 <hr>
-{{post.body}}
+{{ post.body|safe }}
 <br>
 
 <a href="{% url 'home' %}">Back</a>
