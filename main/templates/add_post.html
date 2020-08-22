@@ -3,14 +3,20 @@
 {% block content %}
 
 {% if user.is_authenticated %}
-<h1>Add Post</h1>
-<div class="form-group">
-  <form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-secondary">Post</button>
-</div>
+  <h1>Add Post</h1>
+  <div class="form-group">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button class="btn btn-secondary">Post</button>
+  </div>
+
+        <script>
+            var name = "{{ user.id }}";
+            document.getElementById("user").value = name;
+        </script>
+
 {% else %}
-<h2>You must be loged in to edit../</h2>
+  <h2>You must be loged in to edit../</h2>
 {% endif %}
 {% endblock %}
