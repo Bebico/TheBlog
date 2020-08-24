@@ -13,7 +13,7 @@ for item in choices:
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'author', 'category', 'body')
+        fields = ('title', 'author', 'category', 'body', 'snippet')
 
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Enter post title'}),
@@ -21,4 +21,5 @@ class PostForm(forms.ModelForm):
             #'author': forms.Select(attrs={'class':'form-control'}),
             'category': forms.Select(choices=choices, attrs={'class':'form-control'}),
             'body': forms.Textarea(attrs={'class':'form-control', 'placeholder':'Do your thing Girl!'}),
+            'snippet': forms.Textarea(attrs={'class': 'form-control'})
         }
