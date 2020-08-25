@@ -4,6 +4,11 @@
 
 
 <h1>Edit Profile...</h1>
+<br><br>
+
+{{ user.profile.bio }}
+
+
 <div class="form-group">
   <form method="POST">
     {% csrf_token %}
