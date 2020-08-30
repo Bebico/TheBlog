@@ -49,16 +49,29 @@ By: {{ post.author.first_name}} {{ post.author.last_name}}
     - {{ total_likes }} likes
 </form>
 <br>
+<hr>
+<h2>Comments...</h2>
+<br>
+{% if not post.comments.all %}
+    No Comments Yet ... <a href="#">Add One</a>
+{% else %}
+    {% for comment in post.comments.all %}
+        <strong>
+            {{ comment.name }} -
+            {{ comment.date_added }}
+        </strong><br>
+        {{ comment.body }}
+<hr>
+    {% endfor %}
+{% endif %}
     <div class="card mb-3">
       <div class="row no-gutters">
         <div class="col-md-2">
-
-            {% if post.author.profile.profile_pic.url %}
+            {% if post.author.profile.profile_pic %}
                 <img src="{{ post.author.profile.profile_pic.url }}" alt="" width="100" height="100">
             {% else %}
-                <img src="{% static 'main\images\user_default.jpg' %}" alt="" width="100" height="100">
+                <img src="{% static 'main/images/user_default.jpg' %}" alt="" width="100" height="100">
             {% endif %}
-
         </div>
         <div class="col-md-10">
           <div class="card-body">

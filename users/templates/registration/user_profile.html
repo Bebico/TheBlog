@@ -8,7 +8,7 @@
           <div class="row no-gutters">
             <div class="col-md-2">
 
-                {% if page_user.profile_pic.url %}
+                {% if page_user.profile_pic %}
                     <img src="{{ page_user.profile_pic.url }}" alt="" width="100" height="100">
                 {% else %}
                     <img src="{% static 'main\images\user_default.jpg' %}" alt="" width="100" height="100">
