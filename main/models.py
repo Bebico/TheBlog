@@ -23,7 +23,6 @@ class Profile(models.Model):
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
 
 
-
     def __str__(self):
         return str(self.user)
 
